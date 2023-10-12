@@ -45,7 +45,21 @@ def crear_producto(producto: Producto):
     return productos
 
 
-@app.post('/productos')
-def crear_producto(producto: Producto):
-    productos.append(producto)
+@app.put('/productos/{id}')
+def actualizar_producto(id: int, producto: Producto):
+    for index, item in enumerate(productos):
+        if item['id'] == id:
+            productos[index]['nombre'] = producto.nombre
+            productos[index]['precio'] = producto.precio
+            productos[index]['stock'] = producto.stock
     return productos
+
+
+@app.delete('/productos/{id}')
+def borrar_producto(id: int):
+    for item in productos:
+        if item['id'] == id:
+            productos.remove(item)
+    return productos
+
+

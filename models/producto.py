@@ -7,3 +7,4 @@ class Producto(BaseModel):
     nombre: str
     precio: float
     stock: int
+

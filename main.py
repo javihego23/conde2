@@ -63,3 +63,6 @@ def borrar_producto(id: int):
     return productos
 
 
+
+
+
